@@ -1,0 +1,122 @@
+//ENUNCIADO------------------------------------------------------------------------------------------------------------
+factorial de un numero
+//---------------------------------------------------------------------------------------------------------------------
+float a;
+
+            if (factorial(a)!=0.0)
+            {
+                printf("____________________\n");
+                printf("\nel primer operando es: %f \ny su factorizacion es: %.3f\n",a, factorial(a));
+                printf("____________________\n\n");
+            }
+            else
+            {
+                printf("____________________\n");
+                printf("\nENTRADA NO VALIDA (no existe factorial de numero negativo, reintente)");
+                printf("\n____________________\n\n");
+            }
+
+
+//FUNCION
+long double factorial(float op1)
+{
+    long double ans=1.0;
+    float fact;
+
+    if (op1>0)
+    {   
+        for (fact=op1;fact>1;fact--)
+        {
+            ans=ans*fact;
+        }
+        return ans;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+//ENUNCIADO------------------------------------------------------------------------------------------------------------
+Hacer un programa que descomponga un n%cmero ingresado por teclado en sus factores primos.
+//---------------------------------------------------------------------------------------------------------------------
+
+int num, i;
+	
+printf("\nIngrese un n%cmero: ",163);
+fflush(stdin);
+scanf("%d",&num);
+	
+while(num<=1)
+{
+	printf("\nERROR. Por favor ingrese un n%cmero mayor a 1): ",163);
+	fflush(stdin);
+	scanf("%d",&num);
+}
+
+printf("\nLos factores primos de %d son",num);
+
+for(i=2;i<=num;i++)
+{
+	while(num%i==0)
+	{
+		printf(", %d",i);
+		num=num/i;
+	}
+}
+
+//ENUNCIADO------------------------------------------------------------------------------------------------------------
+Hacer un programa que eleve un numeroingresado a otro numero ingresado
+//---------------------------------------------------------------------------------------------------------------------
+
+int funpot(int base, int potencia){
+	
+	int aux,i;
+	
+	aux=base;
+	
+	for(i=1;i<potencia;i++)
+	{
+		base= base*aux;
+	}
+	return base;	
+}
+
+//ENUNCIADO------------------------------------------------------------------------------------------------------------
+serie de fibonacci
+//---------------------------------------------------------------------------------------------------------------------
+
+int num, primNum,segNum,aux,i;
+	
+	printf("\nIngrese un n%cmero: ",163);
+	fflush(stdin);
+	scanf("%d",&num);
+	
+	while(num<=1)
+	{
+		printf("\nERROR. Por favor ingrese un n%cmero posterior a la serie de Fibonacci (mayor a 1): ",163);
+		fflush(stdin);
+		scanf("%d",&num);
+	}
+
+//fibonacci(int num);
+//int primNum,segNum,aux,i;
+
+	primNum=0;
+	segNum=1;
+	printf("\nFibonacci: ");
+	for(i=1;i<=num;i++)
+	{
+		if(primNum!=0)
+		{
+			printf(",%d",primNum); //prolijidad para la escritura de la serie (sino por pantalla arranca con coma la serie)
+		}
+		else
+		{
+			printf("%d",primNum);
+		}
+		aux=primNum+segNum;
+		primNum=segNum;
+		segNum=aux;
+	}	
+
